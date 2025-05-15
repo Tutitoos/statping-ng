@@ -21,8 +21,7 @@ RUN apk add --no-cache libstdc++ gcc g++ make git autoconf \
     update-ca-certificates
 
 WORKDIR /root
-RUN git clone --depth 1 --branch 3.6.2 https://github.com/sass/sassc.git
-RUN . sassc/script/bootstrap && make -C sassc -j4
+RUN apk add --no-cache sassc
 # sassc binary: /root/sassc/bin/sassc
 
 WORKDIR /go/src/github.com/Tutitoos/statping-ng
