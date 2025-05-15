@@ -14,6 +14,10 @@ func AddNotifier(n ServiceNotifier) {
 func UpdateNotifiers() {
 	for _, n := range notifications.All() {
 		notifier := allNotifiers[n.Method]
+		if notifier == nil {
+			// Optionally log a warning here
+			continue
+		}
 		notifier.Select().UpdateFields(n)
 	}
 }
