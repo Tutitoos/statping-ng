@@ -6,12 +6,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/statping-ng/statping-ng/types/failures"
-	"github.com/statping-ng/statping-ng/types/notifications"
-	"github.com/statping-ng/statping-ng/types/notifier"
-	"github.com/statping-ng/statping-ng/types/null"
-	"github.com/statping-ng/statping-ng/types/services"
-	"github.com/statping-ng/statping-ng/utils"
+	"github.com/Tutitoos/statping-ng/types/failures"
+	"github.com/Tutitoos/statping-ng/types/notifications"
+	"github.com/Tutitoos/statping-ng/types/notifier"
+	"github.com/Tutitoos/statping-ng/types/null"
+	"github.com/Tutitoos/statping-ng/types/services"
+	"github.com/Tutitoos/statping-ng/utils"
 )
 
 var _ notifier.Notifier = (*slack)(nil)

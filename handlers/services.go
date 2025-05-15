@@ -1,13 +1,13 @@
 package handlers
 
 import (
+	"github.com/Tutitoos/statping-ng/database"
+	"github.com/Tutitoos/statping-ng/types/errors"
+	"github.com/Tutitoos/statping-ng/types/failures"
+	"github.com/Tutitoos/statping-ng/types/hits"
+	"github.com/Tutitoos/statping-ng/types/services"
+	"github.com/Tutitoos/statping-ng/utils"
 	"github.com/gorilla/mux"
-	"github.com/statping-ng/statping-ng/database"
-	"github.com/statping-ng/statping-ng/types/errors"
-	"github.com/statping-ng/statping-ng/types/failures"
-	"github.com/statping-ng/statping-ng/types/hits"
-	"github.com/statping-ng/statping-ng/types/services"
-	"github.com/statping-ng/statping-ng/utils"
 	"net/http"
 )
 

@@ -1,10 +1,10 @@
 package services
 
 import (
-	"github.com/statping-ng/statping-ng/types/failures"
-	"github.com/statping-ng/statping-ng/types/notifications"
-	"github.com/statping-ng/statping-ng/types/null"
-	"github.com/statping-ng/statping-ng/utils"
+	"github.com/Tutitoos/statping-ng/types/failures"
+	"github.com/Tutitoos/statping-ng/types/notifications"
+	"github.com/Tutitoos/statping-ng/types/null"
+	"github.com/Tutitoos/statping-ng/utils"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"

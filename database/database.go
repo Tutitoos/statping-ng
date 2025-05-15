@@ -3,9 +3,9 @@ package database
 import (
 	"database/sql"
 	"fmt"
+	"github.com/Tutitoos/statping-ng/types/metrics"
+	"github.com/Tutitoos/statping-ng/utils"
 	"github.com/jinzhu/gorm"
-	"github.com/statping-ng/statping-ng/types/metrics"
-	"github.com/statping-ng/statping-ng/utils"
 	"strings"
 	"time"
 

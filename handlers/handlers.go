@@ -8,9 +8,9 @@ import (
 	"path"
 	"time"
 
-	"github.com/statping-ng/statping-ng/source"
-	"github.com/statping-ng/statping-ng/types/errors"
-	"github.com/statping-ng/statping-ng/utils"
+	"github.com/Tutitoos/statping-ng/source"
+	"github.com/Tutitoos/statping-ng/types/errors"
+	"github.com/Tutitoos/statping-ng/utils"
 )
 
 const (

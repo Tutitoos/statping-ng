@@ -1,7 +1,7 @@
 package incidents
 
 import (
-	"github.com/statping-ng/statping-ng/utils"
+	"github.com/Tutitoos/statping-ng/utils"
 	"time"
 )
 

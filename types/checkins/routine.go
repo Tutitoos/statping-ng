@@ -2,8 +2,8 @@ package checkins
 
 import (
 	"fmt"
-	"github.com/statping-ng/statping-ng/types/failures"
-	"github.com/statping-ng/statping-ng/utils"
+	"github.com/Tutitoos/statping-ng/types/failures"
+	"github.com/Tutitoos/statping-ng/utils"
 	"time"
 )
 

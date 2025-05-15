@@ -2,7 +2,7 @@ package services
 
 import (
 	"fmt"
-	"github.com/statping-ng/statping-ng/types/failures"
+	"github.com/Tutitoos/statping-ng/types/failures"
 	"strings"
 	"time"
 )

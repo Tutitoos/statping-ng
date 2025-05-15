@@ -2,10 +2,10 @@ package utils
 
 import (
 	"fmt"
+	"github.com/Tutitoos/statping-ng/types/null"
 	"github.com/fatih/structs"
 	"github.com/getsentry/sentry-go"
 	Logger "github.com/sirupsen/logrus"
-	"github.com/statping-ng/statping-ng/types/null"
 	"gopkg.in/natefinch/lumberjack.v2"
 	"io"
 	"os"

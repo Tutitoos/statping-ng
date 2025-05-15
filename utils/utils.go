@@ -17,8 +17,8 @@ import (
 	"sync"
 	"time"
 
+	"github.com/Tutitoos/statping-ng/types/metrics"
 	"github.com/go-ping/ping"
-	"github.com/statping-ng/statping-ng/types/metrics"
 )
 
 var (

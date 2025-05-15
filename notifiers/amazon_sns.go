@@ -4,16 +4,16 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/Tutitoos/statping-ng/types/null"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/credentials"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/sns"
-	"github.com/statping-ng/statping-ng/types/null"
 
-	"github.com/statping-ng/statping-ng/types/failures"
-	"github.com/statping-ng/statping-ng/types/notifications"
-	"github.com/statping-ng/statping-ng/types/notifier"
-	"github.com/statping-ng/statping-ng/types/services"
+	"github.com/Tutitoos/statping-ng/types/failures"
+	"github.com/Tutitoos/statping-ng/types/notifications"
+	"github.com/Tutitoos/statping-ng/types/notifier"
+	"github.com/Tutitoos/statping-ng/types/services"
 )
 
 var _ notifier.Notifier = (*amazonSNS)(nil)

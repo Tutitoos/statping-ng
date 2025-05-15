@@ -6,13 +6,14 @@ package source
 
 import (
 	"fmt"
-	"github.com/GeertJohan/go.rice"
-	"github.com/pkg/errors"
-	"github.com/statping-ng/statping-ng/utils"
 	"os"
 	"os/exec"
 	"path/filepath"
 	"strings"
+
+	rice "github.com/GeertJohan/go.rice"
+	"github.com/Tutitoos/statping-ng/utils"
+	"github.com/pkg/errors"
 )
 
 var (

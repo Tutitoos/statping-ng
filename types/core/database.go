@@ -1,11 +1,11 @@
 package core
 
 import (
+	"github.com/Tutitoos/statping-ng/database"
+	"github.com/Tutitoos/statping-ng/types/metrics"
+	"github.com/Tutitoos/statping-ng/types/null"
+	"github.com/Tutitoos/statping-ng/utils"
 	"github.com/pkg/errors"
-	"github.com/statping-ng/statping-ng/database"
-	"github.com/statping-ng/statping-ng/types/metrics"
-	"github.com/statping-ng/statping-ng/types/null"
-	"github.com/statping-ng/statping-ng/utils"
 )
 
 var db database.Database

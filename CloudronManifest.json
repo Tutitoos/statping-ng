@@ -11,9 +11,9 @@
     "localstorage": {}
   },
   "manifestVersion": 2,
-  "website": "https://github.com/statping/statping",
+  "website": "https://github.com/Tutitoos/statping-ng",
   "contactEmail": "info@statping.com",
   "icon": "https://assets.statping.com/icon.png",
   "tags": [ "monitoring", "uptime" ],
   "mediaLinks": [ "https://assets.statping.com/cloudron.png" ]
-}s
+}

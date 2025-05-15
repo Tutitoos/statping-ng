@@ -1,8 +1,8 @@
 package users
 
 import (
-	"github.com/statping-ng/statping-ng/types/errors"
-	"github.com/statping-ng/statping-ng/utils"
+	"github.com/Tutitoos/statping-ng/types/errors"
+	"github.com/Tutitoos/statping-ng/utils"
 )
 
 func (u *User) Validate() error {

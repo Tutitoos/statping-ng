@@ -1,7 +1,7 @@
 package groups
 
 import (
-	"github.com/statping-ng/statping-ng/types/null"
+	"github.com/Tutitoos/statping-ng/types/null"
 	"time"
 )
 

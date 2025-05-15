@@ -4,11 +4,11 @@ import (
 	"net/http"
 	"sort"
 
+	"github.com/Tutitoos/statping-ng/types/errors"
+	"github.com/Tutitoos/statping-ng/types/failures"
+	"github.com/Tutitoos/statping-ng/types/notifications"
+	"github.com/Tutitoos/statping-ng/types/services"
 	"github.com/gorilla/mux"
-	"github.com/statping-ng/statping-ng/types/errors"
-	"github.com/statping-ng/statping-ng/types/failures"
-	"github.com/statping-ng/statping-ng/types/notifications"
-	"github.com/statping-ng/statping-ng/types/services"
 )
 
 func apiAllNotifiersHandler(r *http.Request) interface{} {

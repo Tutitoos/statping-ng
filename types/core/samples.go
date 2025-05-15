@@ -1,8 +1,8 @@
 package core
 
 import (
-	"github.com/statping-ng/statping-ng/types/null"
-	"github.com/statping-ng/statping-ng/utils"
+	"github.com/Tutitoos/statping-ng/types/null"
+	"github.com/Tutitoos/statping-ng/utils"
 )
 
 func Example() *Core {

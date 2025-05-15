@@ -1,8 +1,8 @@
 package incidents
 
 import (
-	"github.com/statping-ng/statping-ng/database"
-	"github.com/statping-ng/statping-ng/utils"
+	"github.com/Tutitoos/statping-ng/database"
+	"github.com/Tutitoos/statping-ng/utils"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"

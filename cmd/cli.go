@@ -4,13 +4,13 @@ import (
 	"bufio"
 	"encoding/json"
 	"fmt"
+	"github.com/Tutitoos/statping-ng/handlers"
+	"github.com/Tutitoos/statping-ng/source"
+	"github.com/Tutitoos/statping-ng/types/configs"
+	"github.com/Tutitoos/statping-ng/types/core"
+	"github.com/Tutitoos/statping-ng/types/services"
+	"github.com/Tutitoos/statping-ng/utils"
 	"github.com/pkg/errors"
-	"github.com/statping-ng/statping-ng/handlers"
-	"github.com/statping-ng/statping-ng/source"
-	"github.com/statping-ng/statping-ng/types/configs"
-	"github.com/statping-ng/statping-ng/types/core"
-	"github.com/statping-ng/statping-ng/types/services"
-	"github.com/statping-ng/statping-ng/utils"
 	"io/ioutil"
 	"os"
 	"path/filepath"
@@ -351,7 +351,7 @@ func ask(format string) bool {
 func updateDisplay() error {
 	gitCurrent, err := checkGithubUpdates()
 	if err != nil {
-		return errors.Wrap(err, "Issue connecting to https://github.com/statping-ng/statping-ng")
+		return errors.Wrap(err, "Issue connecting to https://github.com/Tutitoos/statping-ng")
 	}
 	if gitCurrent.TagName == "" {
 		return nil

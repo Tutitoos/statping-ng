@@ -4,11 +4,11 @@ import (
 	"net"
 	"net/http"
 
+	"github.com/Tutitoos/statping-ng/types/checkins"
+	"github.com/Tutitoos/statping-ng/types/errors"
+	"github.com/Tutitoos/statping-ng/types/services"
+	"github.com/Tutitoos/statping-ng/utils"
 	"github.com/gorilla/mux"
-	"github.com/statping-ng/statping-ng/types/checkins"
-	"github.com/statping-ng/statping-ng/types/errors"
-	"github.com/statping-ng/statping-ng/types/services"
-	"github.com/statping-ng/statping-ng/utils"
 )
 
 func findCheckin(r *http.Request) (*checkins.Checkin, string, error) {

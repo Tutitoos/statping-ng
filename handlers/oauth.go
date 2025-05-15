@@ -2,11 +2,11 @@ package handlers
 
 import (
 	"fmt"
+	"github.com/Tutitoos/statping-ng/types/core"
+	"github.com/Tutitoos/statping-ng/types/errors"
+	"github.com/Tutitoos/statping-ng/types/null"
+	"github.com/Tutitoos/statping-ng/types/users"
 	"github.com/gorilla/mux"
-	"github.com/statping-ng/statping-ng/types/core"
-	"github.com/statping-ng/statping-ng/types/errors"
-	"github.com/statping-ng/statping-ng/types/null"
-	"github.com/statping-ng/statping-ng/types/users"
 	"golang.org/x/oauth2"
 	"net/http"
 )

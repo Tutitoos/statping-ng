@@ -1,4 +1,4 @@
-module github.com/statping-ng/statping-ng
+module github.com/Tutitoos/statping-ng
 
 go 1.19
 
@@ -57,7 +57,7 @@ require (
 	github.com/dimchansky/utfbom v1.1.0 // indirect
 	github.com/dnsimple/dnsimple-go v0.60.0 // indirect
 	github.com/exoscale/egoscale v0.18.1 // indirect
-	github.com/fsnotify/fsnotify v1.5.4 // indirect
+	github.com/fsnotify/fsnotify v1.8.0 // indirect
 	github.com/go-acme/lego/v3 v3.7.0 // indirect
 	github.com/go-errors/errors v1.0.2 // indirect
 	github.com/go-resty/resty/v2 v2.2.0 // indirect
@@ -65,7 +65,6 @@ require (
 	github.com/gofrs/uuid v3.2.0+incompatible // indirect
 	github.com/golang/groupcache v0.0.0-20200121045136-8c9f03a8e57e // indirect
 	github.com/golang/protobuf v1.4.2 // indirect
-	github.com/gomarkdown/markdown v0.0.0-20221013030248-663e2500819c // indirect
 	github.com/google/go-cmp v0.5.9 // indirect
 	github.com/google/go-querystring v1.0.0 // indirect
 	github.com/google/uuid v1.3.0 // indirect
@@ -103,7 +102,7 @@ require (
 	github.com/oracle/oci-go-sdk v17.4.0+incompatible // indirect
 	github.com/ovh/go-ovh v0.0.0-20181109152953-ba5adb4cf014 // indirect
 	github.com/patrickmn/go-cache v2.1.0+incompatible // indirect
-	github.com/pelletier/go-toml v1.7.0 // indirect
+	github.com/pelletier/go-toml v1.9.5 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/prometheus/client_model v0.0.0-20190812154241-14fe0d1b01d4 // indirect
 	github.com/prometheus/common v0.6.0 // indirect
@@ -114,8 +113,6 @@ require (
 	github.com/spf13/jwalterweatherman v1.1.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/subosito/gotenv v1.2.0 // indirect
-	github.com/tdewolff/minify/v2 v2.12.4 // indirect
-	github.com/tdewolff/parse/v2 v2.6.4 // indirect
 	github.com/timewasted/linode v0.0.0-20160829202747-37e84520dcf7 // indirect
 	github.com/transip/gotransip/v6 v6.0.2 // indirect
 	github.com/vultr/govultr v0.3.3 // indirect
@@ -123,7 +120,7 @@ require (
 	go.uber.org/ratelimit v0.1.0 // indirect
 	golang.org/x/net v0.4.0 // indirect
 	golang.org/x/sync v0.1.0 // indirect
-	golang.org/x/sys v0.3.0 // indirect
+	golang.org/x/sys v0.30.0 // indirect
 	golang.org/x/text v0.5.0 // indirect
 	golang.org/x/time v0.0.0-20200416051211-89c76fbcd5d1 // indirect
 	google.golang.org/api v0.21.0 // indirect

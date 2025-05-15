@@ -1,9 +1,9 @@
 package hits
 
 import (
-	"github.com/statping-ng/statping-ng/database"
-	"github.com/statping-ng/statping-ng/types/metrics"
-	"github.com/statping-ng/statping-ng/utils"
+	"github.com/Tutitoos/statping-ng/database"
+	"github.com/Tutitoos/statping-ng/types/metrics"
+	"github.com/Tutitoos/statping-ng/utils"
 )
 
 var log = utils.Log

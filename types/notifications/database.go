@@ -1,7 +1,9 @@
 package notifications
 
 import (
-	"github.com/statping-ng/statping-ng/database"
+	"runtime/debug"
+
+	"github.com/Tutitoos/statping-ng/database"
 )
 
 var (
@@ -66,9 +68,12 @@ func (n *Notification) Create() error {
 }
 
 func (n *Notification) UpdateFields(notif *Notification) *Notification {
+	defer handlePanic()
+
 	if notif == nil {
 		return n
 	}
+
 	n.Id = notif.Id
 	n.Limits = notif.Limits
 	n.Enabled = notif.Enabled
@@ -90,4 +95,15 @@ func (n *Notification) Update() error {
 		return err
 	}
 	return nil
+}
+
+func handlePanic() {
+	if err := recover(); err != nil {
+		log.Println("===================================")
+		log.Println("🔥 PANIC RECOVERED 🔥")
+		log.Printf("🧠 Error: %v\n", err)
+		log.Println("📦 Stack Trace:")
+		log.Println(string(debug.Stack()))
+		log.Println("===================================")
+	}
 }

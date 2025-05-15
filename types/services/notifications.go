@@ -1,9 +1,9 @@
 package services
 
 import (
-	"github.com/statping-ng/statping-ng/types/failures"
-	"github.com/statping-ng/statping-ng/types/notifications"
-	"github.com/statping-ng/statping-ng/utils"
+	"github.com/Tutitoos/statping-ng/types/failures"
+	"github.com/Tutitoos/statping-ng/types/notifications"
+	"github.com/Tutitoos/statping-ng/utils"
 )
 
 func AddNotifier(n ServiceNotifier) {

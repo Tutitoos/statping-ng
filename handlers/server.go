@@ -3,9 +3,9 @@ package handlers
 import (
 	"crypto/tls"
 	"fmt"
+	"github.com/Tutitoos/statping-ng/utils"
 	"github.com/foomo/simplecert"
 	"github.com/foomo/tlsconfig"
-	"github.com/statping-ng/statping-ng/utils"
 	"net/http"
 	"strings"
 )

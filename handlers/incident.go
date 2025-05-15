@@ -1,10 +1,10 @@
 package handlers
 
 import (
+	"github.com/Tutitoos/statping-ng/types/errors"
+	"github.com/Tutitoos/statping-ng/types/incidents"
+	"github.com/Tutitoos/statping-ng/utils"
 	"github.com/gorilla/mux"
-	"github.com/statping-ng/statping-ng/types/errors"
-	"github.com/statping-ng/statping-ng/types/incidents"
-	"github.com/statping-ng/statping-ng/utils"
 	"net/http"
 )
 
