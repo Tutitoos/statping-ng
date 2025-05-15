@@ -27,8 +27,8 @@ RUN apk add --no-cache sassc
 WORKDIR /go/src/github.com/Tutitoos/statping-ng
 ADD go.mod go.sum ./
 RUN go mod download
-ENV GO111MODULE on
-ENV CGO_ENABLED 1
+ENV GO111MODULE=on
+ENV CGO_ENABLED=1
 COPY cmd ./cmd
 COPY database ./database
 COPY handlers ./handlers
