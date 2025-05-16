@@ -2,7 +2,7 @@
   <div class="container col-md-7 col-sm-12 mt-md-5">
     <TopNav
       :admin="admin"
-      :authenticated="!!user"
+      :user="user"
     />
     <Header />
 
@@ -104,7 +104,6 @@ export default {
     data () {
         return {
             logged_in: false,
-            authenticated: false,
             loaded: false,
         };
     },

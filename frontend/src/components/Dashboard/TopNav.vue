@@ -26,94 +26,48 @@
       :class="{collapse: !navopen}"
     >
       <ul
-        v-if="authenticated"
+        v-if="admin"
         class="navbar-nav mr-auto"
       >
-        <li
-          class="nav-item navbar-item"
-          @click="navopen = !navopen"
-        >
-          <router-link
-            to="/dashboard"
-            class="nav-link"
-          >
+        <li class="nav-item navbar-item" @click="navopen = !navopen">
+          <router-link to="/dashboard" class="nav-link">
             {{ $t('dashboard') }}
           </router-link>
         </li>
-        <li
-          class="nav-item navbar-item"
-          @click="navopen = !navopen"
-        >
-          <router-link
-            to="/dashboard/services"
-            class="nav-link"
-          >
+        <li class="nav-item navbar-item" @click="navopen = !navopen">
+          <router-link to="/dashboard/services" class="nav-link">
             {{ $t('services') }}
           </router-link>
         </li>
-        <li
-          v-if="admin"
-          class="nav-item navbar-item"
-          @click="navopen = !navopen"
-        >
-          <router-link
-            to="/dashboard/users"
-            class="nav-link"
-          >
+        <li class="nav-item navbar-item" @click="navopen = !navopen">
+          <router-link to="/dashboard/users" class="nav-link">
             {{ $t('users') }}
           </router-link>
         </li>
-        <li
-          class="nav-item navbar-item"
-          @click="navopen = !navopen"
-        >
-          <router-link
-            to="/dashboard/messages"
-            class="nav-link"
-          >
+        <li class="nav-item navbar-item" @click="navopen = !navopen">
+          <router-link to="/dashboard/messages" class="nav-link">
             {{ $t('announcements') }}
           </router-link>
         </li>
-        <li
-          v-if="admin"
-          class="nav-item navbar-item"
-          @click="navopen = !navopen"
-        >
-          <router-link
-            to="/dashboard/settings"
-            class="nav-link"
-          >
+        <li class="nav-item navbar-item" @click="navopen = !navopen">
+          <router-link to="/dashboard/settings" class="nav-link">
             {{ $t('settings') }}
           </router-link>
         </li>
-        <li
-          v-if="admin"
-          class="nav-item navbar-item"
-          @click="navopen = !navopen"
-        >
-          <router-link
-            to="/dashboard/logs"
-            class="nav-link"
-          >
+        <li class="nav-item navbar-item" @click="navopen = !navopen">
+          <router-link to="/dashboard/logs" class="nav-link">
             {{ $t('logs') }}
           </router-link>
         </li>
-        <li
-          v-if="admin"
-          class="nav-item navbar-item"
-          @click="navopen = !navopen"
-        >
-          <router-link
-            to="/dashboard/help"
-            class="nav-link"
-          >
+        <li class="nav-item navbar-item" @click="navopen = !navopen">
+          <router-link to="/dashboard/help" class="nav-link">
             {{ $t('help') }}
           </router-link>
         </li>
       </ul>
       <span class="navbar-text">
         <a
-          v-if="authenticated"
+          v-if="admin || user"
           href="#"
           class="nav-link"
           @click.prevent="logout"
@@ -138,20 +92,19 @@ import Api from '../../API';
 export default {
     name: 'TopNav',
     props: {
-        authenticated: {
+        admin: {
             type: Boolean,
-            required: true
+            default: false
+        },
+        user: {
+            type: [Boolean],
+            default: false
         }
     },
     data () {
         return {
             navopen: false
         };
-    },
-    computed: {
-        admin () {
-            return this.$store.state.admin;
-        }
     },
     methods: {
         async logout () {

@@ -7,7 +7,7 @@
     <Modal />
     <TopNav
       :admin="admin"
-      :authenticated="!!user"
+      :user="user"
     />
     <router-view :admin="admin" />
   </div>
@@ -25,7 +25,6 @@ export default {
     },
     data () {
         return {
-            authenticated: false,
             loaded: false,
         };
     },
