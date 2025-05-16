@@ -1,5 +1,6 @@
 const italian = {
     settings: "Impostazioni",
+    home: "Casa",
     dashboard: "cruscotto",
     services: "Servizi",
     service: "Servizio",

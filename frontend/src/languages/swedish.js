@@ -1,5 +1,6 @@
 const swedish = {
     settings: "Inställningar",
+    home: "Hem",
     dashboard: "Översikt",
     services: "Tjänster",
     service: "Tjänst",

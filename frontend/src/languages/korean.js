@@ -1,5 +1,6 @@
 const korean = {
     settings: "설정",
+    home: "홈",
     dashboard: "대시보드",
     services: "서비스",
     service: "서비스",

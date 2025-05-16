@@ -1,5 +1,6 @@
 const japanese = {
     settings: "設定",
+    home: "ホーム",
     dashboard: "ダッシュボード",
     services: "サービス",
     service: "サービス",

@@ -1,5 +1,6 @@
 const german = {
     settings: "Einstellungen",
+    home: "Startseite",
     dashboard: "Dashboard",
     services: "Dienste",
     service: "Dienst",

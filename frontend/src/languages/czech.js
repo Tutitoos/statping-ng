@@ -1,5 +1,6 @@
 const czech = {
     settings: "Nastavení",
+    home: "Domov",
     dashboard: "Nástěnka",
     services: "Služby",
     service: "Služba",

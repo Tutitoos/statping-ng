@@ -1,5 +1,6 @@
 const french = {
     settings: "Paramètres",
+    home: "Maison",
     dashboard: "Tableau de bord",
     services: "Services",
     service: "Service",

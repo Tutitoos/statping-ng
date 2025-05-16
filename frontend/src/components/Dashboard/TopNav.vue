@@ -30,6 +30,11 @@
         class="navbar-nav mr-auto"
       >
         <li class="nav-item navbar-item" @click="navopen = !navopen">
+          <router-link to="/" class="nav-link">
+            {{ $t('home') }}
+          </router-link>
+        </li>
+        <li class="nav-item navbar-item" @click="navopen = !navopen">
           <router-link to="/dashboard" class="nav-link">
             {{ $t('dashboard') }}
           </router-link>

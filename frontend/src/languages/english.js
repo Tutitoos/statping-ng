@@ -1,5 +1,6 @@
 const english = {
     settings: "Settings",
+    home: "Home",
     dashboard: "Dashboard",
     services: "Services",
     service: "Service",

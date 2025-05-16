@@ -1,5 +1,6 @@
 const russian = {
     settings: "Настройки",
+    home: "Главная",
     dashboard: "Панель",
     services: "Сервисы",
     service: "Сервис",

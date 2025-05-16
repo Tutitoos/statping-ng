@@ -1,5 +1,6 @@
 const spanish = {
     settings: "Configuración",
+    home: "Inicio",
     dashboard: "Panel",
     services: "Servicios",
     service: "Servicio",

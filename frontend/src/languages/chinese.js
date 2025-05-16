@@ -1,5 +1,6 @@
 const chinese = {
     settings: "设置",
+    home: "主页",
     dashboard: "仪表板",
     services: "服务",
     service: "服务",
