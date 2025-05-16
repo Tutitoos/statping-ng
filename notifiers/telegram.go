@@ -64,6 +64,7 @@ func (t *telegram) sendMessage(message string) (string, error) {
 	apiEndpoint := fmt.Sprintf("https://api.telegram.org/bot%v/sendMessage", t.ApiSecret.String)
 
 	v := url.Values{}
+	v.Set("parse_mode", "MarkdownV2")
 	v.Set("chat_id", t.Var1.String)
 	v.Set("text", message)
 
