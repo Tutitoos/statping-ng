@@ -59,6 +59,31 @@ var Telegram = &telegram{&notifications.Notification{
 	}}},
 }
 
+// Escapa caracteres especiales para MarkdownV2 de Telegram
+func escapeMarkdownV2(text string) string {
+	replacer := strings.NewReplacer(
+		"_", "\\_",
+		"*", "\\*",
+		"[", "\\[",
+		"]", "\\]",
+		"(", "\\(",
+		")", "\\)",
+		"~", "\\~",
+		"`", "\\`",
+		">", "\\>",
+		"#", "\\#",
+		"+", "\\+",
+		"-", "\\-",
+		"=", "\\=",
+		"|", "\\|",
+		"{", "\\{",
+		"}", "\\}",
+		".", "\\.",
+		"!", "\\!",
+	)
+	return replacer.Replace(text)
+}
+
 // Send will send a HTTP Post to the Telegram API. It accepts type: string
 func (t *telegram) sendMessage(message string) (string, error) {
 	apiEndpoint := fmt.Sprintf("https://api.telegram.org/bot%v/sendMessage", t.ApiSecret.String)
@@ -66,7 +91,7 @@ func (t *telegram) sendMessage(message string) (string, error) {
 	v := url.Values{}
 	v.Set("parse_mode", "MarkdownV2")
 	v.Set("chat_id", t.Var1.String)
-	v.Set("text", message)
+	v.Set("text", escapeMarkdownV2(message))
 
 	contents, _, err := utils.HttpRequest(apiEndpoint, "POST", "application/x-www-form-urlencoded", nil, strings.NewReader(v.Encode()), time.Duration(10*time.Second), true, nil)
 
