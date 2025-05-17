@@ -144,6 +144,24 @@ func CreateAllAssets(folder string) error {
 	if err := MakePublicFolder(fp(folder, "assets", "scss")); err != nil {
 		return err
 	}
+	// Crear index.scss vacío si no existe
+	indexScssPath := fp(folder, "assets", "scss", "index.scss")
+	if _, err := os.Stat(indexScssPath); os.IsNotExist(err) {
+		f, err := os.Create(indexScssPath)
+		if err != nil {
+			return err
+		}
+		f.Close()
+	}
+	// Crear style.css vacío si no existe
+	styleCssPath := fp(folder, "assets", "css", "style.css")
+	if _, err := os.Stat(styleCssPath); os.IsNotExist(err) {
+		f, err := os.Create(styleCssPath)
+		if err != nil {
+			return err
+		}
+		f.Close()
+	}
 	log.Infoln("Inserting scss, and css files into assets folder")
 
 	if err := CopyAllToPublic(TmplBox); err != nil {

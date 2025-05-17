@@ -17,12 +17,9 @@ ARG COMMIT
 ARG BUILDPLATFORM
 ARG TARGETARCH
 RUN apk add --no-cache libstdc++ gcc g++ make git autoconf \
-    libtool ca-certificates linux-headers wget curl jq && \
+    libtool ca-certificates linux-headers wget curl jq nodejs npm && \
     update-ca-certificates
-
-WORKDIR /root
-RUN apk add --no-cache sassc
-# sassc binary: /root/sassc/bin/sassc
+RUN npm install -g sass
 
 WORKDIR /go/src/github.com/Tutitoos/statping-ng
 ADD go.mod go.sum ./
@@ -42,23 +39,22 @@ RUN cd source && rice embed-go
 RUN go build -a -ldflags "-s -w -extldflags -static -X main.VERSION=$VERSION -X main.COMMIT=$COMMIT" -o statping --tags "netgo linux" ./cmd
 RUN chmod a+x statping && mv statping /go/bin/statping
 # /go/bin/statping - statping binary
-# /root/sassc/bin/sassc - sass binary
 # /statping - Vue frontend (from frontend)
 
 # Statping main Docker image that contains all required libraries
 FROM alpine:latest
 
-RUN apk --no-cache add libgcc libstdc++ ca-certificates curl jq && update-ca-certificates
+RUN apk --no-cache add libgcc libstdc++ ca-certificates curl jq nodejs npm && update-ca-certificates
+RUN npm install -g sass
 
 COPY --from=backend /go/bin/statping /usr/local/bin/
-COPY --from=backend /usr/bin/sassc /usr/local/bin/
 COPY --from=backend /usr/local/share/ca-certificates /usr/local/share/
 
 WORKDIR /app
 VOLUME /app
 
 ENV IS_DOCKER=true
-ENV SASS=/usr/local/bin/sassc
+ENV SASS=/usr/local/bin/sass
 ENV STATPING_DIR=/app
 ENV PORT=8080
 ENV BASE_PATH=""

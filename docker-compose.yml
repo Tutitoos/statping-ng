@@ -1,16 +1,16 @@
 version: '3.8'
 
 services:
-  statping:
-    container_name: statping
-    image: ghcr.io/tutitoos/statping-ng:latest
+  statping-test:
+    image: status:latest
+    container_name: statping-test
     restart: always
-    volumes:
-      - statping_data:/app
-    environment:
-      DB_CONN: sqlite
     ports:
-      - 8080:8080
-
-volumes:
-  statping_data:
+      - "3503:8080"
+    environment:
+      DB_CONN: postgres
+      DB_HOST: 10.147.18.245
+      DB_PORT: 54002
+      DB_USER: statping
+      DB_PASS: statping
+      DB_DATABASE: statping-elcoheteboom
