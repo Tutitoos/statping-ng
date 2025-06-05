@@ -1,6 +1,8 @@
 package handlers
 
 import (
+	"net/http"
+
 	"github.com/Tutitoos/statping-ng/database"
 	"github.com/Tutitoos/statping-ng/types/errors"
 	"github.com/Tutitoos/statping-ng/types/failures"
@@ -8,7 +10,6 @@ import (
 	"github.com/Tutitoos/statping-ng/types/services"
 	"github.com/Tutitoos/statping-ng/utils"
 	"github.com/gorilla/mux"
-	"net/http"
 )
 
 type serviceOrder struct {
@@ -19,7 +20,8 @@ type serviceOrder struct {
 func findService(r *http.Request) (*services.Service, error) {
 	vars := mux.Vars(r)
 	id := utils.ToInt(vars["id"])
-	servicer, err := services.Find(id)
+	permalink := vars["id"]
+	servicer, err := services.Find(id, permalink)
 	if err != nil {
 		return nil, err
 	}

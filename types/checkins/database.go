@@ -23,9 +23,17 @@ func (c *Checkin) AfterFind() {
 	metrics.Query("checkin", "find")
 }
 
-func Find(id int64) (*Checkin, error) {
+func Find(id int64, permalink ...string) (*Checkin, error) {
 	var checkin Checkin
+
+	// Try to find by ID first
 	q := db.Where("id = ?", id).Find(&checkin)
+
+	// Try permalink if ID search had an error or found nothing, and permalink is provided
+	if (q.Error() != nil || q.RowsAffected() == 0) && len(permalink) > 0 && permalink[0] != "" {
+		q = db.Where("permalink = ?", permalink[0]).Find(&checkin)
+	}
+
 	return &checkin, q.Error()
 }
 

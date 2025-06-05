@@ -2,11 +2,12 @@ package services
 
 import (
 	"fmt"
+	"sort"
+
 	"github.com/Tutitoos/statping-ng/database"
 	"github.com/Tutitoos/statping-ng/types/errors"
 	"github.com/Tutitoos/statping-ng/types/metrics"
 	"github.com/Tutitoos/statping-ng/utils"
-	"sort"
 )
 
 var (
@@ -68,13 +69,21 @@ func SetDB(database database.Database) {
 	db = database.Model(&Service{})
 }
 
-func Find(id int64) (*Service, error) {
-	srv := allServices[id]
-	if srv == nil {
+func Find(id int64, permalink ...string) (*Service, error) {
+	service := allServices[id]
+	if service == nil {
 		return nil, errors.Missing(&Service{}, id)
 	}
-	db.First(&srv, id)
-	return srv, nil
+
+	// Try to find first
+	q := db.First(&service, id)
+
+	// Try permalink if ID search had an error or found nothing, and permalink is provided
+	if (q.Error() != nil || q.RowsAffected() == 0) && len(permalink) > 0 && permalink[0] != "" {
+		q = db.Where("permalink = ?", permalink[0]).Find(&service)
+	}
+
+	return service, q.Error()
 }
 
 func all() []*Service {
