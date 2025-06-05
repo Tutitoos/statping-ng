@@ -81,28 +81,33 @@ func SetDB(database database.Database) {
 func Find(id int64, permalink ...string) (*Service, error) {
 	service := &Service{}
 
-	// for _, s := range allServices {
-	// 	if s.Permalink.String == permalink {
-	// 		service = s
-	// 		break
-	// 	}
-	// }
+	for _, s := range allServices {
+		if s.Id == id {
+			service = s
+			break
+		}
 
-	// if service == nil {
-	// 	return nil, errors.Missing(&Service{}, permalink)
-	// }
-
-	// return service, nil
-
-	// Try to find by ID first
-	q := db.Where("id = ?", id).Find(&service)
-
-	// Try permalink if ID search had an error or found nothing, and permalink is provided
-	if (q.Error() != nil || q.RowsAffected() == 0) && len(permalink) > 0 && permalink[0] != "" {
-		q = db.Where("permalink = ?", permalink[0]).Find(&service)
+		if len(permalink) > 0 && s.Permalink.String == permalink[0] {
+			service = s
+			break
+		}
 	}
 
-	return service, q.Error()
+	if service == nil {
+		return nil, errors.Missing(&Service{}, permalink)
+	}
+
+	return service, nil
+
+	// // Try to find by ID first
+	// q := db.Where("id = ?", id).Find(&service)
+
+	// // Try permalink if ID search had an error or found nothing, and permalink is provided
+	// if (q.Error() != nil || q.RowsAffected() == 0) && len(permalink) > 0 && permalink[0] != "" {
+	// 	q = db.Where("permalink = ?", permalink[0]).Find(&service)
+	// }
+
+	// return service, q.Error()
 }
 
 func all() []*Service {
