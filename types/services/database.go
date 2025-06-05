@@ -69,42 +69,40 @@ func SetDB(database database.Database) {
 	db = database.Model(&Service{})
 }
 
-func Find(id int64) (*Service, error) {
-	service := allServices[id]
-	if service == nil {
-		return nil, errors.Missing(&Service{}, id)
-	}
+// func Find(id int64) (*Service, error) {
+// 	service := allServices[id]
+// 	if service == nil {
+// 		return nil, errors.Missing(&Service{}, id)
+// 	}
 
-	return service, nil
-}
+// 	return service, nil
+// }
 
-func FindWithPermalink(permalink string) (*Service, error) {
+func Find(id int64, permalink ...string) (*Service, error) {
 	service := &Service{}
 
-	for _, s := range allServices {
-		if s.Permalink.String == permalink {
-			service = s
-			break
-		}
-	}
-
-	if service == nil {
-		return nil, errors.Missing(&Service{}, permalink)
-	}
-
-	return service, nil
-
-	// var checkin Checkin
-
-	// // Try to find by ID first
-	// q := db.Where("id = ?", id).Find(&checkin)
-
-	// // Try permalink if ID search had an error or found nothing, and permalink is provided
-	// if (q.Error() != nil || q.RowsAffected() == 0) && len(permalink) > 0 && permalink[0] != "" {
-	// 	q = db.Where("permalink = ?", permalink[0]).Find(&checkin)
+	// for _, s := range allServices {
+	// 	if s.Permalink.String == permalink {
+	// 		service = s
+	// 		break
+	// 	}
 	// }
 
-	// return &checkin, q.Error()
+	// if service == nil {
+	// 	return nil, errors.Missing(&Service{}, permalink)
+	// }
+
+	// return service, nil
+
+	// Try to find by ID first
+	q := db.Where("id = ?", id).Find(&service)
+
+	// Try permalink if ID search had an error or found nothing, and permalink is provided
+	if (q.Error() != nil || q.RowsAffected() == 0) && len(permalink) > 0 && permalink[0] != "" {
+		q = db.Where("permalink = ?", permalink[0]).Find(&service)
+	}
+
+	return service, q.Error()
 }
 
 func all() []*Service {

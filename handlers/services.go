@@ -21,30 +21,15 @@ func findService(r *http.Request) (*services.Service, error) {
 	vars := mux.Vars(r)
 
 	id := utils.ToInt(vars["id"])
-
-	service := &services.Service{}
-	if utils.NotNumber(vars["id"]) && vars["id"] != "" {
-		permalink := vars["id"]
-		servicer, err := services.FindWithPermalink(permalink)
-		if err != nil {
-			return nil, err
-		}
-
-		service = servicer
-	} else if vars["id"] != "" {
-		servicer, err := services.Find(id)
-		if err != nil {
-			return nil, err
-		}
-
-		service = servicer
+	permalink := vars["id"]
+	servicer, err := services.Find(id, permalink)
+	if err != nil {
+		return nil, err
 	}
-
-	if !service.Public.Bool && !IsReadAuthenticated(r) {
+	if !servicer.Public.Bool && !IsReadAuthenticated(r) {
 		return nil, errors.NotAuthenticated
 	}
-
-	return service, nil
+	return servicer, nil
 }
 
 func reorderServiceHandler(w http.ResponseWriter, r *http.Request) {
