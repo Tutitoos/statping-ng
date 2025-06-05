@@ -19,16 +19,32 @@ type serviceOrder struct {
 
 func findService(r *http.Request) (*services.Service, error) {
 	vars := mux.Vars(r)
+
 	id := utils.ToInt(vars["id"])
-	permalink := vars["id"]
-	servicer, err := services.Find(id, permalink)
-	if err != nil {
-		return nil, err
+
+	service := &services.Service{}
+	if utils.NotNumber(vars["id"]) && vars["id"] != "" {
+		permalink := vars["id"]
+		servicer, err := services.FindWithPermalink(permalink)
+		if err != nil {
+			return nil, err
+		}
+
+		service = servicer
+	} else if vars["id"] != "" {
+		servicer, err := services.Find(id)
+		if err != nil {
+			return nil, err
+		}
+
+		service = servicer
 	}
-	if !servicer.Public.Bool && !IsReadAuthenticated(r) {
+
+	if !service.Public.Bool && !IsReadAuthenticated(r) {
 		return nil, errors.NotAuthenticated
 	}
-	return servicer, nil
+
+	return service, nil
 }
 
 func reorderServiceHandler(w http.ResponseWriter, r *http.Request) {
