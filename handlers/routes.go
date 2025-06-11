@@ -81,6 +81,7 @@ func Router() *mux.Router {
 
 	api := r.NewRoute().Subrouter()
 	api.Use(apiMiddleware)
+	api.Use(corsMiddleware)
 	api.Use(prometheusMiddleware)
 
 	// API Routes

@@ -5,15 +5,16 @@ import (
 	"crypto/subtle"
 	"encoding/json"
 	"fmt"
+	"io"
+	"net/http"
+	"strings"
+
 	"github.com/Tutitoos/statping-ng/types/core"
 	"github.com/Tutitoos/statping-ng/types/errors"
 	"github.com/Tutitoos/statping-ng/types/metrics"
 	"github.com/Tutitoos/statping-ng/utils"
 	"github.com/gorilla/mux"
 	"github.com/prometheus/client_golang/prometheus"
-	"io"
-	"net/http"
-	"strings"
 )
 
 var (
@@ -42,6 +43,20 @@ func Gzip(handler http.Handler) http.Handler {
 		defer gz.Close()
 		gzw := gzipResponseWriter{Writer: gz, ResponseWriter: w}
 		handler.ServeHTTP(gzw, r)
+	})
+}
+
+// corsMiddleware agrega los headers necesarios para CORS
+func corsMiddleware(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+		w.Header().Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+		w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization")
+		if r.Method == "OPTIONS" {
+			w.WriteHeader(http.StatusNoContent)
+			return
+		}
+		next.ServeHTTP(w, r)
 	})
 }
 
